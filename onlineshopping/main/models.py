@@ -12,13 +12,13 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def imageURL(self):
-        try:
-            url = self.picture.url
-        except:
-            url = ''
-        return url
+    # @property
+    # def imageURL(self):
+    #     try:
+    #         url = self.picture.url
+    #     except:
+    #         url = ''
+    #     return url
 
 
 class Category(models.Model):
