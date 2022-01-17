@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<h1 class="display-4 fw-normal text-center"> Заказ оформлен </h1>
+<br>
+<h1 class="fw-normal text-center"> Чек </h1>
+
+<div class="fw-normal text-center">
+    Данные покупателя
+    <br>
+    Имя: {{customer.name}}
+    <br>
+    Фамилия: {{customer.surname}}
+    <br>
+    Электронный адрес: {{customer.email}}
+    <br>
+    Номер телефона: {{customer.phone}}
+    <br><br>
+    Товар(ы)
+    <br>
+    {% for i in items %}
+        {{i.product}}
+        {{i.product.model}}
+        .................. x{{i.quantity}}
+        <br>
+    {% endfor %}
+
+    <br>
+    Дата заказа
+    <br>
+    {{receipt.datetime}}
+    <br><br>
+    Сумма заказа
+    <br>
+    {{ receipt.total_price }} ₴
+    <br><br><br>
+    <a class="btn btn-outline-dark" href="{% url 'home' %}">На главную</a>
+</div>
+
+{% endblock %}
